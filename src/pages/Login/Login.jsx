@@ -37,6 +37,17 @@ const Login = () => {
       });
   };
 
+  const handledGithubSignIn = () => {
+    githubUser()
+      .then((res) => {
+        const signedUser = res.user;
+        console.log(signedUser);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   const handledLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -104,7 +115,7 @@ const Login = () => {
         {!login && (
           <div className="text-center w-7/12 flex flex-col items-center justify-center mx-auto gap-2">
             <button
-              // onClick={handledGithubSignIn}
+              onClick={handledGithubSignIn}
               className="relative w-full flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-lg font-medium text-white rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 dark:text-white focus:ring-2 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
             >
               <span className="flex w-full items-center justify-center gap-4 relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 dark:bg-gray-900 rounded-md group-hover:bg-black">

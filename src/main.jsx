@@ -9,6 +9,7 @@ import AuthProvider from "./provider/AuthProvider";
 import NotFound from "./layout/NotFound/NotFound";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import HiddenRoute from "./privateRoute/HiddenRoute/HiddenRoute";
 
 const router = createBrowserRouter([
   {
@@ -21,11 +22,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login></Login>,
+        element: (
+          <HiddenRoute>
+            <Login></Login>,
+          </HiddenRoute>
+        ),
       },
       {
         path: "/register",
-        element: <Register></Register>,
+        element: (
+          <HiddenRoute>
+            <Register></Register>,
+          </HiddenRoute>
+        ),
       },
     ],
   },

@@ -1,12 +1,16 @@
 // import React from 'react';
 
 import useTitle from "../../../Custom/UseTitle/useTitle";
+import Banner from "../Banner/Banner";
+import Gallery from "../Gallery/Gallery";
+import "./Home.css";
 
 const Home = () => {
   useTitle("Home");
   return (
     <div>
-      <h1 className="text-center text-green-500 text-4xl">This is Home page</h1>
+      <Banner></Banner>
+      <Gallery></Gallery>
     </div>
   );
 };

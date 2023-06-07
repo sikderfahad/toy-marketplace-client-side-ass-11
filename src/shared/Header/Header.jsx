@@ -4,7 +4,7 @@ import Nav from "../Nav/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnchor, faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../assets/img/logo.png";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import avatar from "../../assets/img/Avatar.png";
 import { VscSignOut } from "react-icons/vsc";
 import { AuthContext } from "../../provider/AuthProvider";

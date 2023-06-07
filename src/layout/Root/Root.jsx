@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import ToastBox from "../Toast/ToastBox";
+import ToastBox from "../../components/Toast/ToastBox";
 
 const Root = () => {
   return (

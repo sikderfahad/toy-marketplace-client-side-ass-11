@@ -55,7 +55,7 @@ const Header = () => {
     <header className={`md:py-5 py-4 header relative`}>
       <nav
         className={`md:w-10/12 w-11/12 mx-auto  ${
-          user ? "grid md:grid-cols-3 gap-5 grid-cols-2" : "flex"
+          user ? "grid md:flex md:justify-between gap-5 grid-cols-2" : "flex"
         } items-center justify-between`}
       >
         <div className="logo">
@@ -113,7 +113,7 @@ const Header = () => {
             )}
           </div>
         ) : (
-          <div className={`flex items-center gap-4 ${user && "mx-auto"}`}>
+          <div className={`flex items-center gap-4 ${user && "mx"}`}>
             <div
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}

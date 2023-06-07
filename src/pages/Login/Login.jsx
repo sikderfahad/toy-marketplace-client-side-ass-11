@@ -1,6 +1,6 @@
 // import React from "react";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { TiWarningOutline } from "react-icons/ti";
 import { BsFillHouseCheckFill, BsGithub } from "react-icons/bs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -9,8 +9,10 @@ import { Link } from "react-router-dom";
 import googleIcon from "../../assets/img/google.png";
 import "./Login.css";
 import useTitle from "../../Custom/UseTitle/useTitle";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
+  const { user, googleUser } = useContext(AuthContext);
   useTitle("Login");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -20,6 +22,17 @@ const Login = () => {
 
   const loginToggle = () => {
     setLogin(!login);
+  };
+
+  const handledGoogleSignIn = () => {
+    googleUser()
+      .then((res) => {
+        const signedUser = res.user;
+        console.log(signedUser);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   return (
@@ -54,7 +67,7 @@ const Login = () => {
             </button>
 
             <button
-              // onClick={googleSignIn}
+              onClick={handledGoogleSignIn}
               className="relative w-full flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-lg font-medium text-white rounded-lg group bg-gradient-to-br from-pink-600 to-orange-500 group-hover:from-pink-600 group-hover:to-orange-500 dark:text-white focus:ring-2 focus:outline-none focus:ring-pink-300 dark:focus:ring-orange-800"
             >
               <span className="flex w-full items-center justify-center gap-4 relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 dark:bg-gray-900 rounded-md group-hover:bg-black">

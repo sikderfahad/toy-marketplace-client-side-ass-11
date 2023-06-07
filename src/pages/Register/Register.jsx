@@ -5,14 +5,69 @@ import { TiWarningOutline } from "react-icons/ti";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { BsFillHouseCheckFill } from "react-icons/bs";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import { ToastMsgSuc } from "../../components/Toast/ToastMsg";
 
 const Register = () => {
+  const { signInWithEmailPass, userProfile } = useContext(AuthContext);
   useTitle("Sign up");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [show, setShow] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handledSignup = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+
+    setError("");
+    setSuccess("");
+
+    signInWithEmailPass(email, password)
+      .then((res) => {
+        const newUser = res.user;
+
+        userProfile(newUser, {
+          displayName: name,
+          photoURL: photo && photo,
+        })
+          .then(() => {
+            setSuccess("You successfuly create an account!");
+            ToastMsgSuc("Signup successful!");
+            form.reset();
+            navigate("/");
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+
+        console.log(newUser);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        const weakPass = error.message.includes("weak-password");
+        weakPass &&
+          setError("Weak password! Please give at least 6 characters");
+
+        const userExist = error.message.includes("email-already-in-use");
+        userExist && setError("This email already exist! Please try another");
+
+        const emailMissing = error.message.includes("email-missing");
+        emailMissing &&
+          setError("Email is missing! Please enter a valid email");
+
+        const passMissing = error.message.includes("password-missing");
+        passMissing &&
+          setError("Password is missing! Please enter a valid Password");
+      });
+  };
 
   return (
     <div className="py-[200px] bg-black">
@@ -36,7 +91,7 @@ const Register = () => {
         <div>
           <div className="w-100% w-[320px] mx-auto">
             <form
-              // onSubmit={handledSignup}
+              onSubmit={handledSignup}
               className="flex flex-col gap-4"
               action=""
             >

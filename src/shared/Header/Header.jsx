@@ -10,7 +10,7 @@ import { VscSignOut } from "react-icons/vsc";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, userLogout } = useContext(AuthContext);
 
   const [isHover, setIsHover] = useState(false);
 
@@ -31,7 +31,7 @@ const Header = () => {
   const routes = [
     { path: "/", label: "Home" },
     { path: "/all-toyes", label: "All Toyes" },
-    { path: "/add-toyes", label: "Add Toyes" },
+    { path: "/add-toyes", label: "Add Toy" },
     { path: "/my-toyes", label: "My Toyes" },
 
     { path: "/blog", label: "Blog" },
@@ -44,9 +44,9 @@ const Header = () => {
   const setHeaderBg = () => setIsBg(!isBg);
 
   const handledLogout = () => {
-    logOut()
+    userLogout()
       .then(() => {
-        <Navigate to={"/login"}></Navigate>;
+        // <Navigate to={"/login"}></Navigate>;
       })
       .catch((error) => console.log(error.message));
   };

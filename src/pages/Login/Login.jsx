@@ -10,9 +10,11 @@ import googleIcon from "../../assets/img/google.png";
 import "./Login.css";
 import useTitle from "../../Custom/UseTitle/useTitle";
 import { AuthContext } from "../../provider/AuthProvider";
+import { ToastMsgError, ToastMsgSuc } from "../../components/Toast/ToastMsg";
 
 const Login = () => {
-  const { user, googleUser } = useContext(AuthContext);
+  const { googleUser, githubUser, loginWithEmailPass } =
+    useContext(AuthContext);
   useTitle("Login");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -30,8 +32,53 @@ const Login = () => {
         const signedUser = res.user;
         console.log(signedUser);
       })
-      .catch((err) => {
-        console.log(err.message);
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handledLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    setError("");
+    setSuccess("");
+
+    loginWithEmailPass(email, password)
+      .then((res) => {
+        const signedUser = res.user;
+
+        signedUser && ToastMsgSuc("Your login successful!");
+
+        signedUser && setSuccess("You login successful!");
+        console.log(signedUser);
+        // navigate(from ? from : "/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+
+        const passMissing = error.message.includes("missing-password");
+        passMissing &&
+          setError("Password is missing! Please enter a valid Password");
+        passMissing && ToastMsgError("Password is missing!");
+
+        const userNotFound = error.message.includes("user-not-found");
+        userNotFound && setError("User not found! Please enter a valid Email");
+        userNotFound && ToastMsgError("User not found! ");
+
+        const invalidEmail = error.message.includes("invalid-email");
+        invalidEmail && setError("Invalid Email! Please enter a valid Email");
+        invalidEmail && ToastMsgError("Invalid Email! ");
+
+        const wrongPassword = error.message.includes("wrong-password");
+        wrongPassword && setError("Wrong Password! Please try again");
+        wrongPassword && ToastMsgError("Wrong Password!");
+
+        const networkFaild = error.message.includes("network-request-faild");
+        networkFaild && setError("No Internet! Please check your connectivity");
+        networkFaild && ToastMsgError("No Internet!");
       });
   };
 
@@ -39,7 +86,7 @@ const Login = () => {
     <div className="h-[100vh] bg-black">
       <div className="md:w-4/12 w-10/12 mx-auto flex flex-col gap-7 relative top-[150px] ">
         <h1 className="text-center text-5xl font-bold text-white">
-          Let's connect our universe{" "}
+          Let{"'"}s connect our universe{" "}
         </h1>
 
         {error && (
@@ -57,7 +104,7 @@ const Login = () => {
         {!login && (
           <div className="text-center w-7/12 flex flex-col items-center justify-center mx-auto gap-2">
             <button
-              // onClick={gitHubSignIn}
+              // onClick={handledGithubSignIn}
               className="relative w-full flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-lg font-medium text-white rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 dark:text-white focus:ring-2 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
             >
               <span className="flex w-full items-center justify-center gap-4 relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 dark:bg-gray-900 rounded-md group-hover:bg-black">
@@ -88,7 +135,7 @@ const Login = () => {
         {login && (
           <div className="w-100% w-[320px] mx-auto">
             <form
-              // onSubmit={handledLogin}
+              onSubmit={handledLogin}
               className="flex flex-col gap-4"
               action=""
             >

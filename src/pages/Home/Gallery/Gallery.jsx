@@ -6,7 +6,6 @@ const img2 =
 const img3 = "https://i.ibb.co/dWn4Bt7/pexels-photo-5997674.jpg";
 const img4 = "https://i.ibb.co/J3V5x6N/pexels-photo-15748027.webp";
 const img5 = "https://i.ibb.co/5jwS7fj/pexels-photo-97353.webp";
-
 const img6 = "https://i.ibb.co/QkBqNN7/pexels-photo-10216077.webp";
 const img7 = "https://i.ibb.co/YPVqXBv/pexels-photo-4114492.webp";
 const img8 = "https://i.ibb.co/Sd7WgDG/pexels-photo-5471952.jpg";

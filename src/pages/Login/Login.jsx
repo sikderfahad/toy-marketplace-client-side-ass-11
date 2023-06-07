@@ -127,7 +127,7 @@ const Login = () => {
           <Link
             className="text-[#3291ff] hover:underline"
             style={{ TextDecoder: "underline" }}
-            to={"/signup"}
+            to={"/register"}
           >
             {" "}
             Please Signup →

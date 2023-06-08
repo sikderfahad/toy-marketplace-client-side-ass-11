@@ -1,6 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import UserToyTable from "./UserToyTable";
+import Swal from "sweetalert2";
+
+const btn_Success =
+  "text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br  shadow-lg shadow-green-500/50  font-medium rounded-lg text-sm px-5 py-2.5 text-center";
+
+const btn_Danger =
+  "text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600  shadow-lg shadow-red-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2";
 
 const UserToy = () => {
   const { user } = useContext(AuthContext);
@@ -15,12 +22,48 @@ const UserToy = () => {
   //   console.log(userToys);
 
   const deleteToy = (id) => {
-    fetch(`http://localhost:3000/allToys/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: btn_Success,
+        cancelButton: btn_Danger,
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          fetch(`http://localhost:3000/allToys/${id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              swalWithBootstrapButtons.fire(
+                "Toy Deleted!",
+                "Your toy has been deleted.",
+                "success"
+              );
+            });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your Toy data is safe 🫠",
+            "error"
+          );
+        }
       });
   };
 

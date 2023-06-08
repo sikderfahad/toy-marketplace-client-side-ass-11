@@ -10,6 +10,8 @@ import NotFound from "./layout/NotFound/NotFound";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import HiddenRoute from "./privateRoute/HiddenRoute/HiddenRoute";
+import PrivateRoute from "./privateRoute/PrivateRoute/PrivateRoute";
+import ToyDetails from "./pages/ToyDetails/ToyDetails";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,16 @@ const router = createBrowserRouter([
             <Register></Register>,
           </HiddenRoute>
         ),
+      },
+      {
+        path: "/toy-details/:id",
+        element: (
+          <PrivateRoute>
+            <ToyDetails></ToyDetails>,
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/toyes/${params.id}`),
       },
     ],
   },

@@ -5,7 +5,7 @@ import { TiWarningOutline } from "react-icons/ti";
 import { BsFillHouseCheckFill, BsGithub } from "react-icons/bs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import googleIcon from "../../assets/img/google.png";
 import "./Login.css";
 import useTitle from "../../Custom/UseTitle/useTitle";
@@ -13,6 +13,12 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { ToastMsgError, ToastMsgSuc } from "../../components/Toast/ToastMsg";
 
 const Login = () => {
+  const location = useLocation();
+  const from = location?.state?.from;
+  console.log(location);
+
+  const navigate = useNavigate();
+
   const { googleUser, githubUser, loginWithEmailPass } =
     useContext(AuthContext);
   useTitle("Login");
@@ -31,6 +37,7 @@ const Login = () => {
       .then((res) => {
         const signedUser = res.user;
         console.log(signedUser);
+        navigate(from);
       })
       .catch((error) => {
         console.log(error.message);
@@ -42,6 +49,7 @@ const Login = () => {
       .then((res) => {
         const signedUser = res.user;
         console.log(signedUser);
+        navigate(from);
       })
       .catch((err) => {
         console.log(err.message);
@@ -65,7 +73,7 @@ const Login = () => {
 
         signedUser && setSuccess("You login successful!");
         console.log(signedUser);
-        // navigate(from ? from : "/");
+        navigate(from);
       })
       .catch((error) => {
         console.log(error.message);

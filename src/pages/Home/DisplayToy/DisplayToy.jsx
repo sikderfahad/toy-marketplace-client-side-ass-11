@@ -2,6 +2,7 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ToyList = () => {
   const [toysData, setToysData] = useState([]);
@@ -53,9 +54,11 @@ const ToyList = () => {
                       <h3 className="text-lg font-semibold mb-2">{toy.Name}</h3>
                       <p className="text-gray-600 mb-2">Price: {toy.Price}</p>
                       <p className="text-gray-600 mb-2">Rating: {toy.Rating}</p>
-                      <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
-                        View Details
-                      </button>
+                      <Link to={`/toy-details/${toy._id}`}>
+                        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
+                          View Details
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 ))}

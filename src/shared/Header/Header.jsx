@@ -30,7 +30,7 @@ const Header = () => {
 
   const routes = [
     { path: "/", label: "Home" },
-    { path: "/all-toyes", label: "All Toyes" },
+    { path: "/all-toys", label: "All Toyes" },
     { path: "/add-toy", label: "Add a Toy" },
     { path: "/my-toyes", label: "My Toyes" },
 

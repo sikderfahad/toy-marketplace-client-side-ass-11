@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+
 const AddToy = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+
   const handledAddToy = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -24,6 +30,16 @@ const AddToy = () => {
       price,
     };
 
+    fetch("http://localhost:3000/addToy", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(toyInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+
     console.log(toyInfo);
   };
 
@@ -32,6 +48,7 @@ const AddToy = () => {
       <form onSubmit={handledAddToy}>
         <div className="relative z-0 w-full mb-6 group">
           <input
+            defaultValue={user?.displayName && user.displayName}
             type="text"
             name="sellerName"
             id="sellerName"
@@ -48,6 +65,7 @@ const AddToy = () => {
         </div>
         <div className="relative z-0 w-full mb-6 group">
           <input
+            defaultValue={user?.email && user.email}
             type="email"
             name="email"
             id="email"

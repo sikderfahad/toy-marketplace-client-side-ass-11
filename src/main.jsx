@@ -12,6 +12,7 @@ import Register from "./pages/Register/Register";
 import HiddenRoute from "./privateRoute/HiddenRoute/HiddenRoute";
 import PrivateRoute from "./privateRoute/PrivateRoute/PrivateRoute";
 import ToyDetails from "./pages/ToyDetails/ToyDetails";
+import AddToy from "./pages/AddToy/AddToy";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,14 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/toyes/${params.id}`),
+      },
+      {
+        path: "/add-toy",
+        element: (
+          <PrivateRoute>
+            <AddToy></AddToy>,
+          </PrivateRoute>
+        ),
       },
     ],
   },

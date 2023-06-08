@@ -15,6 +15,7 @@ import {
 } from "@material-ui/core";
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   tableContainer: {
@@ -93,9 +94,11 @@ const UserToyTable = ({ headers, data, deleteToy }) => {
               <TableCell>{toy.email}</TableCell>
               <TableCell>
                 <div className="flex flex-col gap-6">
-                  <Button variant="contained" endIcon={<RxUpdate />}>
-                    Update
-                  </Button>
+                  <Link to={`/update-toy/${toy._id}`}>
+                    <Button variant="contained" endIcon={<RxUpdate />}>
+                      Update
+                    </Button>
+                  </Link>
                   <Button
                     onClick={() => deleteToy(toy._id)}
                     variant="outlined"

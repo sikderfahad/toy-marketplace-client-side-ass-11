@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -30,15 +31,60 @@ const AddToy = () => {
       price,
     };
 
-    fetch("http://localhost:3000/addToy", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
+    const btn_Success =
+      "text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br  shadow-lg shadow-green-500/50  font-medium rounded-lg text-sm px-5 py-2.5 text-center";
+
+    const btn_Danger =
+      "text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600  shadow-lg shadow-red-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2";
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: btn_Success,
+        cancelButton: btn_Danger,
       },
-      body: JSON.stringify(toyInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "Please check the creating toy info carefully!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, add toy!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          fetch("http://localhost:3000/addToy", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(toyInfo),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              swalWithBootstrapButtons.fire(
+                "Added!",
+                "Your toy has been added.",
+                "success"
+              );
+              console.log(data);
+              form.reset();
+            });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Check the toy info and create it again",
+            "error"
+          );
+        }
+      });
 
     console.log(toyInfo);
   };

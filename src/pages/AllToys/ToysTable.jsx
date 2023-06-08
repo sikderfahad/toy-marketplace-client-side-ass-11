@@ -14,6 +14,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   tableContainer: {
@@ -70,20 +71,25 @@ const ToysTable = ({ headers, data }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {sortedData.map((row, rowIndex) => (
+          {sortedData.map((toy, rowIndex) => (
             <TableRow key={rowIndex}>
               <TableCell>{rowIndex + 1}.</TableCell>
-              <TableCell>{row.sellerName}</TableCell>
-              <TableCell>{row.toyName}</TableCell>
-              <TableCell>{row.category}</TableCell>
-              <TableCell>${row.price}</TableCell>
+              <TableCell>{toy.sellerName}</TableCell>
+              <TableCell>{toy.toyName}</TableCell>
+              <TableCell>{toy.category}</TableCell>
+              <TableCell>${toy.price}</TableCell>
               <TableCell>
-                {row.quantity} <sub>Pcs</sub>
+                {toy.quantity} <sub>Pcs</sub>
               </TableCell>
               <TableCell>
-                <Button variant="contained" endIcon={<HiOutlineViewGridAdd />}>
-                  Send
-                </Button>
+                <Link to={`/users-toy/${toy._id}`}>
+                  <Button
+                    variant="contained"
+                    endIcon={<HiOutlineViewGridAdd />}
+                  >
+                    View details
+                  </Button>
+                </Link>
               </TableCell>
             </TableRow>
           ))}

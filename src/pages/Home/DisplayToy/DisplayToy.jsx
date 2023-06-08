@@ -1,10 +1,13 @@
 // import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../provider/AuthProvider";
+import { ToastMsgWarn } from "../../../components/Toast/ToastMsg";
 
 const ToyList = () => {
+  const { user } = useContext(AuthContext);
   const [toysData, setToysData] = useState([]);
 
   useEffect(() => {
@@ -14,6 +17,10 @@ const ToyList = () => {
   }, []);
 
   const categories = [...new Set(toysData.map((toy) => toy.Category))];
+
+  const checkLogin = () => {
+    !user && ToastMsgWarn("“You have to log in first to view details”");
+  };
 
   return (
     <div className="w-11/12 md:w-10/12 mx-auto my-10">
@@ -55,7 +62,10 @@ const ToyList = () => {
                       <p className="text-gray-600 mb-2">Price: {toy.Price}</p>
                       <p className="text-gray-600 mb-2">Rating: {toy.Rating}</p>
                       <Link to={`/toy-details/${toy._id}`}>
-                        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
+                        <button
+                          onClick={checkLogin}
+                          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                        >
                           View Details
                         </button>
                       </Link>

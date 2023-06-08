@@ -15,7 +15,7 @@ import { ToastMsgError, ToastMsgSuc } from "../../components/Toast/ToastMsg";
 const Login = () => {
   const location = useLocation();
   const from = location?.state?.from;
-  console.log(location);
+  console.log(from, location);
 
   const navigate = useNavigate();
 

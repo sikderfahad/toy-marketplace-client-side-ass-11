@@ -31,14 +31,14 @@ const ToyCard = () => {
       classNames="card"
       unmountOnExit
     >
-      <div className="bg-gradient-to-br shadow-xl w-11/12 md:w-4/12 mx-auto from-gray-900 via-gray-900 to-[#30bff0] shadow-lg rounded-md overflow-hidden">
+      <div className="bg-gradient-to-br shadow-xl w-11/12 md:w-4/12 mx-auto from-gray-900 via-gray-900 to-[#30bff0]  rounded-md overflow-hidden">
         <img
           src={toy.Picture}
           alt={toy.Name}
           className="h-56 w-full object-cover"
         />
         <div className="p-4">
-          <h3 className="text-2xl mb-6 font-semibold mb-2 text-white">
+          <h3 className="text-2xl mb-6 font-semibold  text-white">
             {toy.Name}
           </h3>
           <p className="text-gray-300 mb-2">
@@ -61,9 +61,6 @@ const ToyCard = () => {
             <FaCheckCircle className="inline mr-2" />
             Quantity: {toy.AvailableQuantity} <sub>pcs</sub>
           </p>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
-            View Details
-          </button>
         </div>
       </div>
     </CSSTransition>

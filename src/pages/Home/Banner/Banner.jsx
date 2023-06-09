@@ -1,8 +1,15 @@
 // import React from 'react';
 
+// Initialize AOS
+
 const Banner = () => {
   return (
-    <div className="w-full overflow-hidden relative h-screen md:h-screen">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="700"
+      data-aos-easing="ease"
+      className="w-full overflow-hidden relative h-screen md:h-screen"
+    >
       <img
         className="w-full h-full"
         src={"https://i.ibb.co/3RJCWKg/toyman-banner.webp"}

@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 // import "./Gallery.css";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+// Initialize AOS
+AOS.init();
+
 const img1 =
   "https://i.ibb.co/tmG4KVn/radpanzer-model-military-vehicle-163546.jpg";
 const img2 =
@@ -32,7 +38,11 @@ const Gallery = () => {
     img12,
   ];
   return (
-    <div className="w-10/12 mx-auto mt-24 mb-10 flex flex-col gap-6">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="3000"
+      className="w-10/12 mx-auto mt-24 mb-10 flex flex-col gap-6"
+    >
       <div className="text-center mb-6">
         <h1 className="text-xl md:text-4xl mb-3">Our Exclusive Gallery</h1>
         <Link className="text-[#4acdd5] text-lg">Be entertained</Link>

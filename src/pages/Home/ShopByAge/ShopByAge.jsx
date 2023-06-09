@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+// Initialize AOS
+AOS.init();
 
 const ShopByAge = () => {
   return (
-    <div className="w-10/12 mx-auto flex flex-col items-center gap-6 my-20">
+    <div
+      data-aos="fade-left"
+      data-aos-duration="1000"
+      className="w-10/12 mx-auto flex flex-col items-center gap-6 my-20"
+    >
       <div className="text-center mb-6">
         <h1 className="text-xl md:text-4xl mb-3">Shop by Age</h1>
         <Link className="text-[#4acdd5] text-lg">Our collections</Link>

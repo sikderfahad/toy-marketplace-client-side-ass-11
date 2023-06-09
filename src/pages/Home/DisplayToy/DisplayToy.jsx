@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { ToastMsgWarn } from "../../../components/Toast/ToastMsg";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+// Initialize AOS
+AOS.init();
+
 const ToyList = () => {
   const { user } = useContext(AuthContext);
   const [toysData, setToysData] = useState([]);
@@ -22,7 +28,10 @@ const ToyList = () => {
   };
 
   return (
-    <div className="w-11/12 md:w-10/12 my-24 mx-auto flex flex-col gap-6">
+    <div
+      data-aos="fade-up"
+      className="w-11/12 md:w-10/12 my-24 mx-auto flex flex-col gap-6"
+    >
       <div className="text-center mb-6">
         <h1 className="text-xl md:text-4xl mb-3">We Love Trends</h1>
         <Link className="text-[#4acdd5] text-lg">Featured Products</Link>

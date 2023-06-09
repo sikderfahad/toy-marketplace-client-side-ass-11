@@ -40,7 +40,7 @@ const Gallery = () => {
   return (
     <div
       data-aos="fade-up"
-      data-aos-duration="3000"
+      data-aos-duration="1000"
       className="w-10/12 mx-auto mt-24 mb-10 flex flex-col gap-6"
     >
       <div className="text-center mb-6">

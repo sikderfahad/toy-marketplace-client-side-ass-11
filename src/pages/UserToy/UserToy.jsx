@@ -19,7 +19,9 @@ const UserToy = () => {
   const [routeChanger, setRouteChanger] = useState("userAllToysAsc");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/${routeChanger}?email=${user?.email}`)
+    fetch(
+      `https://express-workspace-fsikder484-gmailcom.vercel.app/${routeChanger}?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setUsertoys(data));
   }, [user, routeChanger]);
@@ -51,9 +53,12 @@ const UserToy = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:3000/allToys/${id}`, {
-            method: "DELETE",
-          })
+          fetch(
+            `https://express-workspace-fsikder484-gmailcom.vercel.app/allToys/${id}`,
+            {
+              method: "DELETE",
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
@@ -95,10 +100,17 @@ const UserToy = () => {
     <div>
       <div className="w-10/12 mx-auto my-6">
         <div className="w-full flex items-center justify-between">
-          <h1 className="text-2xl text-[#2fbff0] font-semibold my-6">
-            Your added → {userToys.length}{" "}
-            {userToys.length > 1 ? "Toys" : "Toy"}
-          </h1>
+          {userToys.length === 0 ? (
+            <h1 className="text-2xl text-[#2fbff0] font-semibold my-6">
+              {" "}
+              You have never add any toy yet 😴
+            </h1>
+          ) : (
+            <h1 className="text-2xl text-[#2fbff0] font-semibold my-6">
+              Your added → {userToys.length}{" "}
+              {userToys.length > 1 ? "Toys" : "Toy"}
+            </h1>
+          )}
           <button
             onClick={priceAscSort}
             type="button"
@@ -107,11 +119,13 @@ const UserToy = () => {
             Sort By Price Asc
           </button>
         </div>
-        <UserToyTable
-          headers={headers}
-          data={userToys}
-          deleteToy={deleteToy}
-        ></UserToyTable>
+        {userToys.length > 0 && (
+          <UserToyTable
+            headers={headers}
+            data={userToys}
+            deleteToy={deleteToy}
+          ></UserToyTable>
+        )}
       </div>
     </div>
   );

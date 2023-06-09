@@ -59,13 +59,16 @@ const AddToy = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch("http://localhost:3000/addToy", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(toyInfo),
-          })
+          fetch(
+            "https://express-workspace-fsikder484-gmailcom.vercel.app/addToy",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(toyInfo),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               swalWithBootstrapButtons.fire(
@@ -142,7 +145,7 @@ const AddToy = () => {
             htmlFor="photo"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Picture URL of the toy,
+            Picture URL of the toy
           </label>
         </div>
         <div className="grid md:grid-cols-2 md:gap-6">

@@ -144,8 +144,8 @@ const Footer = () => {
                 <ul className="flex flex-col gap-7 ">
                   <li>
                     <a
-                      className="hover:text-[#30beeb] flex gap-5 duration-200 items-center"
-                      href=""
+                      className="hover:text-[#30beeb]  hover:ml-4 flex gap-5 duration-200 items-center"
+                      href="https://www.facebook.com/"
                     >
                       <SlSocialFacebook />
                       Facebook
@@ -153,8 +153,8 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      className="hover:text-[#30beeb] flex gap-5 duration-200 items-center"
-                      href=""
+                      className="hover:text-[#30beeb] hover:ml-4  flex gap-5 duration-200 items-center"
+                      href="https://www.twitter.com/"
                     >
                       <SlSocialTwitter />
                       Twitter
@@ -162,8 +162,8 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      className="hover:text-[#30beeb] flex gap-5 duration-200 items-center"
-                      href=""
+                      className="hover:text-[#30beeb] hover:ml-4  flex gap-5 duration-200 items-center"
+                      href="https://www.instagram.com/"
                     >
                       <SlSocialInstagram />
                       Instagram
@@ -171,8 +171,8 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      className="hover:text-[#30beeb] flex gap-5 duration-200 items-center"
-                      href=""
+                      className="hover:text-[#30beeb] hover:ml-4  flex gap-5 duration-200 items-center"
+                      href="https://www.youtube.com/"
                     >
                       <SlSocialYoutube />
                       Youtube
@@ -180,8 +180,8 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      className="hover:text-[#30beeb] flex gap-5 duration-200 items-center"
-                      href=""
+                      className="hover:text-[#30beeb] hover:ml-4  flex gap-5 duration-200 items-center"
+                      href="https://www.pinterest.com/"
                     >
                       <SlSocialPintarest />
                       Pintarest

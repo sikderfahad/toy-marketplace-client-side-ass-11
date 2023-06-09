@@ -58,13 +58,16 @@ const UpdateToy = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:3000/allToys/${preToyData._id}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(toyInfo),
-          })
+          fetch(
+            `https://express-workspace-fsikder484-gmailcom.vercel.app/allToys/${preToyData._id}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(toyInfo),
+            }
+          )
             .then((res) => res.json())
             .then(() => {
               //   console.log(data);

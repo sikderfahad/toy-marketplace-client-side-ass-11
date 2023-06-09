@@ -27,7 +27,7 @@ const AllToys = () => {
             View All Toys
           </Button>
         </div>
-        <ToysTable headers={headers} data={allToys}></ToysTable>
+        {allToys && <ToysTable headers={headers} data={allToys}></ToysTable>}
       </div>
     </div>
   );

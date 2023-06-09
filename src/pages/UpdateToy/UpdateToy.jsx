@@ -1,7 +1,9 @@
 import Swal from "sweetalert2";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import useTitle from "../../Custom/UseTitle/useTitle";
 
 const UpdateToy = () => {
+  useTitle("Update Toy");
   const preToyData = useLoaderData();
   const navigate = useNavigate();
 

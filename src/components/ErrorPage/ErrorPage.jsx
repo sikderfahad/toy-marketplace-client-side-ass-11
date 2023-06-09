@@ -1,4 +1,7 @@
+import useTitle from "../../Custom/UseTitle/useTitle";
+
 const ErrorPage = () => {
+  useTitle("4 O 4 - Not found");
   return (
     <div>
       <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
@@ -13,7 +16,7 @@ const ErrorPage = () => {
           Oops!
         </h1>
         <h2 className="text-2xl text-white mb-4 animate-pulse">
-          We couldn't find the page you're looking for.
+          We couldn{"'"}t find the page you{"'"}re looking for.
         </h2>
         <p className="text-lg text-white mb-8 animate-pulse">
           It may have been moved, deleted, or never existed.

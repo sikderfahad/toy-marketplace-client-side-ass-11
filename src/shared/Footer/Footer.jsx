@@ -1,110 +1,200 @@
-import React from "react";
 import "./Footer.css";
-import footerLogo from "../../assets/img/logo-light.png";
-import { FaFacebookF, FaInstagram, FaTiktok, FaTwitter } from "react-icons/fa";
-import { BsFillSendCheckFill } from "react-icons/bs";
+import footerLogo from "../../assets/img/logo.png";
+import {
+  SlSocialFacebook,
+  SlSocialInstagram,
+  SlSocialPintarest,
+  SlSocialTwitter,
+  SlSocialYoutube,
+} from "react-icons/sl";
+
+import map from "../../assets/img/map.png";
+import mail from "../../assets/img/arroba.png";
+import call from "../../assets/img/phone-call.png";
 
 const Footer = () => {
   return (
     <div className="">
       <div className="main-footer">
         <div className="md:w-10/12 w-11/12 mx-auto">
-          <div className="">
-            <div className="f-top flex md:flex-row flex-col items-center justify-between md:gap-0 gap-8">
-              <div className="flgo">
-                <img src={footerLogo} alt="" />
-              </div>
-              <div className="social flex gap-1">
-                <a href="">
-                  <FaFacebookF />
-                </a>
-                <a href="">
-                  <FaTwitter />
-                </a>
-                <a href="">
-                  <FaInstagram />
-                </a>
-                <a href="">
-                  <FaTiktok />
-                </a>
+          <div className="grid md:grid-cols-[2fr,1fr,1fr,1fr] grid-cols-1 gap-8">
+            <div className="">
+              <div className=" flex md:flex-row flex-col items-center justify-between md:gap-0 gap-8">
+                <div className="flgo">
+                  <img src={footerLogo} alt="" />
+                  <p className="my-8">
+                    A kids toy shop is a store that specializes in selling toys
+                    and games designed specifically for children.
+                  </p>
+                  <div className="flex flex-col gap-6">
+                    <div className="flex gap-5">
+                      <img src={map} alt="" />
+                      <span>Addresss: 1800 Abbot Kinney Nebraska UK</span>
+                    </div>
+                    <div className="flex gap-5">
+                      <img src={mail} alt="" />
+                      <span>Email: hello@example.com</span>
+                    </div>
+                    <div className="flex gap-5">
+                      <img src={call} alt="" />
+                      <span>Phone: (012) 345 6789</span>
+                    </div>
+                    <p></p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 grid-cols-1 gap-8">
             <div>
-              <h2 className="ftitle">Contact Us</h2>
+              <h2 className="ftitle text-lg font-semibold">Quick Links </h2>
               <div>
-                <ul className="contact-sec">
-                  <li className="">
-                    <div className="tit">Call :</div>
-                    <div className="dots"></div>
-                    <span> 914-309-7030 , 914-309-7030</span>
+                <ul className="flex flex-col gap-7 ">
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] duration-200 py-2"
+                      href=""
+                    >
+                      Help Center
+                    </a>
                   </li>
-                  <li className="">
-                    <div className="tit">Write : </div>
-                    <div className="dots"></div>
-                    <span> reservations@Yumy.com</span>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] duration-200 py-2"
+                      href=""
+                    >
+                      Redeem Voucher
+                    </a>
                   </li>
-                  <li className="">
-                    <div className="tit">Find us : </div>
-                    <div className="dots"></div>
-                    <span>71 Madison Ave 10013 New York</span>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] duration-200 py-2"
+                      href=""
+                    >
+                      Contact Us
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] duration-200 py-2"
+                      href=""
+                    >
+                      Policies & Rules
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] duration-200 py-2"
+                      href=""
+                    >
+                      Check Offer List
+                    </a>
                   </li>
                 </ul>
               </div>
             </div>
             <div>
-              <h2 className="ftitle">Opening time</h2>
+              <h2 className="ftitle text-lg font-semibold">Information </h2>
               <div>
-                <ul className="contact-sec">
-                  <li className="">
-                    <div className="tit">Friday to Sunday </div>
-                    <div className="dots"></div>
-                    <span> 09:00 - 22:00</span>
+                <ul className="flex flex-col gap-7 ">
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] duration-200 py-2"
+                      href=""
+                    >
+                      Product Support
+                    </a>
                   </li>
-                  <li className="">
-                    <div className="tit">Tuesday to thursday </div>
-                    <div className="dots"></div>
-                    <span> 11:00 - 19:00</span>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] duration-200 py-2"
+                      href=""
+                    >
+                      Checkout
+                    </a>
                   </li>
-                  <li className="">
-                    <div className="tit">Monday </div>
-                    <div className="dots"></div>
-                    <span>Closed</span>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] duration-200 py-2"
+                      href=""
+                    >
+                      License Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] duration-200 py-2"
+                      href=""
+                    >
+                      Affiliat
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] duration-200 py-2"
+                      href=""
+                    >
+                      About Us
+                    </a>
                   </li>
                 </ul>
               </div>
             </div>
             <div>
-              <h2 className="ftitle">subscribe</h2>
+              <h2 className="ftitle text-lg font-semibold">Follow Us On </h2>
               <div>
-                <p className="text-[#777] mb-3">
-                  Want to be notified when we launch a new template or an
-                  udpate. Just sign up and we'll send you a notification by
-                  email.
-                </p>
-                <form className="flex" action="">
-                  <div className="f-input-fld">
-                    <input type="email" name="email" placeholder="Email" />
-                  </div>
-                  <div className="f-submit-btn">
-                    <button className="text-2xl">
-                      <BsFillSendCheckFill />{" "}
-                    </button>
-                  </div>
-                </form>
+                <ul className="flex flex-col gap-7 ">
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] flex gap-5 duration-200 items-center"
+                      href=""
+                    >
+                      <SlSocialFacebook />
+                      Facebook
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] flex gap-5 duration-200 items-center"
+                      href=""
+                    >
+                      <SlSocialTwitter />
+                      Twitter
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] flex gap-5 duration-200 items-center"
+                      href=""
+                    >
+                      <SlSocialInstagram />
+                      Instagram
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] flex gap-5 duration-200 items-center"
+                      href=""
+                    >
+                      <SlSocialYoutube />
+                      Youtube
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="hover:text-[#30beeb] flex gap-5 duration-200 items-center"
+                      href=""
+                    >
+                      <SlSocialPintarest />
+                      Pintarest
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="bg-[#161718] text-center py-8 text-white">
-        <p>
-          <small>
-            <i>© 2023, Yumy Template. Made with passion by UI-Expert.</i>
-          </small>
-        </p>
+      <div className="bg-[#4acdd5] text-center py-8 text-white">
+        <p>Copyright Toyman | Built with Toyman by Team90Degree</p>
       </div>
     </div>
   );

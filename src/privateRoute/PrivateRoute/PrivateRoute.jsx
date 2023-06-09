@@ -3,16 +3,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
+import Spinner from "../../components/Spinner/Spinner";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
-  // console.log(location.pathname);
 
   if (loading) {
-    return (
-      <h1 className="text-center text-3xl text-green-500 mt-6">Loading...</h1>
-    );
+    return <Spinner></Spinner>;
   }
 
   if (user) {

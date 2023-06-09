@@ -11,8 +11,8 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { ToastMsgSuc } from "../../components/Toast/ToastMsg";
 
 const Register = () => {
-  const { signInWithEmailPass, userProfile } = useContext(AuthContext);
   useTitle("Sign up");
+  const { signInWithEmailPass, userProfile } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [show, setShow] = useState(false);
@@ -73,7 +73,7 @@ const Register = () => {
     <div className="py-[200px] bg-black">
       <div className="md:w-4/12 w-10/12 mx-auto flex flex-col gap-7  top-[100px] ">
         <h1 className="text-center text-5xl font-bold text-white">
-          Create Yumy Account{" "}
+          Create ToyMan Account{" "}
         </h1>
 
         {error && (

@@ -1,8 +1,6 @@
-// import React from "react";
-
 import { BallTriangle } from "react-loader-spinner";
 
-const Test = () => {
+const Spinner = () => {
   return (
     <div className="w-fit h-fit mx-auto my-6">
       <BallTriangle
@@ -19,4 +17,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Spinner;

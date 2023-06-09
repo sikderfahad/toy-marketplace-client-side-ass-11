@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import useTitle from "../../Custom/UseTitle/useTitle";
 
 const AddToy = () => {
+  useTitle("Add Toy");
   const { user } = useContext(AuthContext);
   console.log(user);
 
@@ -72,7 +74,7 @@ const AddToy = () => {
                 "success"
               );
               console.log(data);
-              form.reset();
+              // form.reset();
             });
         } else if (
           /* Read more about handling dismissals below */

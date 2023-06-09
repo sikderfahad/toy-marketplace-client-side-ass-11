@@ -1,7 +1,7 @@
 .main-footer {
-  color: #fff;
+  color: #000;
   padding: 80px 0;
-  background-color: #18181d;
+  background-color: #fafafa;
 }
 .f-top {
   padding-bottom: 30px;
@@ -23,15 +23,16 @@
   transition: 0.2s ease-in;
 }
 .social a:hover {
-  color: rgb(241, 75, 9);
+  color: #fe6798;
   transform: translate(0, -5px);
 }
 
 .ftitle {
-  color: #b7b095;
-  font-family: "Cormorant", serif;
+  color: #000;
+  /* font-family: "Cormorant", serif; */
+  font-family: "Nunito Sans", sans-serif;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  /* letter-spacing: 2px; */
   margin-bottom: 30px;
 }
 
@@ -75,6 +76,6 @@ span {
 .f-submit-btn button {
   border: 0;
   padding: 13px 25px;
-  background: #ff006f;
+  background: #fe6798;
   min-width: auto;
 }

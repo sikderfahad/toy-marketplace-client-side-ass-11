@@ -1,5 +1,3 @@
-// import React from "react";
-
 import { useContext, useState } from "react";
 import { TiWarningOutline } from "react-icons/ti";
 import { BsFillHouseCheckFill, BsGithub } from "react-icons/bs";
@@ -13,6 +11,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { ToastMsgError, ToastMsgSuc } from "../../components/Toast/ToastMsg";
 
 const Login = () => {
+  useTitle("Login");
   const location = useLocation();
   const from = location?.state?.from;
   console.log(from, location);
@@ -21,7 +20,6 @@ const Login = () => {
 
   const { googleUser, githubUser, loginWithEmailPass } =
     useContext(AuthContext);
-  useTitle("Login");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 

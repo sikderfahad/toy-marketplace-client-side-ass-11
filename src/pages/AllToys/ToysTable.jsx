@@ -1,4 +1,3 @@
-// import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { HiOutlineViewGridAdd } from "react-icons/hi";
 
@@ -74,6 +73,13 @@ const ToysTable = ({ headers, data }) => {
           {sortedData.map((toy, rowIndex) => (
             <TableRow key={rowIndex}>
               <TableCell>{rowIndex + 1}.</TableCell>
+              <TableCell>
+                <img
+                  className="w-[100px] h-[100px] rounded-lg"
+                  src={toy.photo}
+                  alt=""
+                />{" "}
+              </TableCell>
               <TableCell>{toy.sellerName}</TableCell>
               <TableCell>{toy.toyName}</TableCell>
               <TableCell>{toy.category}</TableCell>

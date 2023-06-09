@@ -1,4 +1,3 @@
-// import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { useContext, useEffect, useState } from "react";
@@ -23,59 +22,71 @@ const ToyList = () => {
   };
 
   return (
-    <div className="w-11/12 md:w-10/12 mx-auto my-10">
-      <Tabs>
-        <TabList className="flex mb-10">
-          {categories.map((category, index) => (
-            <Tab
-              key={category}
-              className={`${index === 0 ? " rounded-t-lg " : ""} ${
-                index === categories.length - 1
-                  ? "rounded-b-lg"
-                  : "border-t-0  border-l-0 border-r-0"
-              } ${
-                index === 0 ? "ml-0 text-blue-500" : "ml-1 text-blue-500"
-              } px-4 py-2 text-sm font-medium  bg-gray-100 rounded-md cursor-pointer transition-colors duration-300 hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white`}
-            >
-              {category}
-            </Tab>
-          ))}
-        </TabList>
+    <div className="w-11/12 md:w-10/12 my-24 mx-auto flex flex-col gap-6">
+      <div className="text-center mb-6">
+        <h1 className="text-xl md:text-4xl mb-3">We Love Trends</h1>
+        <Link className="text-[#4acdd5] text-lg">Featured Products</Link>
+      </div>
+      <div className=" my-10 ">
+        <Tabs>
+          <TabList className="flex md:flex-row flex-col md:gap-8 gap-4 md:w-fit w-full text-center mx-auto mb-10">
+            {categories.map((category, index) => (
+              <Tab
+                key={category}
+                className={`${
+                  index === 0 ? " md:rounded-full " : "md:rounded-full"
+                } ${
+                  index === categories.length - 1
+                    ? "md:rounded-full"
+                    : "md:rounded-full"
+                } ${
+                  index === 0 ? "ml-0 text-blue-500" : "ml-1 text-blue-500"
+                } py-4 px-8 text-lg font-medium  bg-gray-100 md:rounded-full cursor-pointer transition-colors duration-300 hover:bg-blue-500 hover:text-white focus:bg-blue-500 md:focus:rounded-full focus:text-white`}
+              >
+                {category}
+              </Tab>
+            ))}
+          </TabList>
 
-        {categories.map((category) => (
-          <TabPanel key={category}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              {toysData
-                .filter((toy) => toy.Category === category)
-                .map((toy) => (
-                  <div
-                    key={toy.Name}
-                    className="bg-white shadow-lg rounded-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300"
-                  >
-                    <img
-                      src={toy.Picture}
-                      alt={toy.Name}
-                      className="h-40 w-full object-cover"
-                    />
-                    <div className="p-4">
-                      <h3 className="text-lg font-semibold mb-2">{toy.Name}</h3>
-                      <p className="text-gray-600 mb-2">Price: {toy.Price}</p>
-                      <p className="text-gray-600 mb-2">Rating: {toy.Rating}</p>
-                      <Link to={`/toy-details/${toy._id}`}>
-                        <button
-                          onClick={checkLogin}
-                          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
-                        >
-                          View Details
-                        </button>
-                      </Link>
+          {categories.map((category) => (
+            <TabPanel key={category}>
+              <div className="grid grid-cols-1 duration-500 sm:grid-cols-2 md:grid-cols-3  gap-8">
+                {toysData
+                  .filter((toy) => toy.Category === category)
+                  .map((toy) => (
+                    <div
+                      key={toy.Name}
+                      className="bg-[#f6f8fa] shadow rounded-lg overflow-hidden transform hover:scale-95 duration-300"
+                    >
+                      <img
+                        src={toy.Picture}
+                        alt={toy.Name}
+                        className="h-[250px] w-full object-cover"
+                      />
+                      <div className="p-4">
+                        <h3 className="text-lg font-semibold mb-2">
+                          {toy.Name}
+                        </h3>
+                        <p className="text-gray-600 mb-2">Price: {toy.Price}</p>
+                        <p className="text-gray-600 mb-2">
+                          Rating: {toy.Rating}
+                        </p>
+                        <Link to={`/toy-details/${toy._id}`}>
+                          <button
+                            onClick={checkLogin}
+                            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                          >
+                            View Details
+                          </button>
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                ))}
-            </div>
-          </TabPanel>
-        ))}
-      </Tabs>
+                  ))}
+              </div>
+            </TabPanel>
+          ))}
+        </Tabs>
+      </div>
     </div>
   );
 };

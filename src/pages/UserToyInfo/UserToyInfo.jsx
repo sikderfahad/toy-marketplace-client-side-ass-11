@@ -16,9 +16,9 @@ import {
 } from "react-icons/fa";
 
 const UserToyInfo = () => {
+  useTitle("Toy details");
   const [isCardVisible, setIsCardVisible] = React.useState(false);
 
-  useTitle("Toy details");
   const toy = useLoaderData();
   console.log(toy);
 

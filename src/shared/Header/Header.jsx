@@ -135,7 +135,7 @@ const Header = () => {
                   )}
                 </div>
               ) : (
-                <h1 className="gradient-title duration-200 text-xl font-semibold">
+                <h1 className="text-[#2fbfef] duration-200 text-xl font-semibold">
                   {user?.displayName && user.displayName}
                 </h1>
               )}

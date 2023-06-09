@@ -1,4 +1,6 @@
-// import React from 'react';
+import { Link } from "react-router-dom";
+// import "./Gallery.css";
+
 const img1 =
   "https://i.ibb.co/tmG4KVn/radpanzer-model-military-vehicle-163546.jpg";
 const img2 =
@@ -30,15 +32,21 @@ const Gallery = () => {
     img12,
   ];
   return (
-    <div className="w-10/12 mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 my-10 ">
-      {imgBox.map((item, idx) => (
-        <div className="rounded-lg h-[300px] " key={idx}>
-          <img
-            className="rounded-lg gallery-ite w-full h-full shadow-lg"
-            src={item}
-          ></img>
-        </div>
-      ))}
+    <div className="w-10/12 mx-auto mt-24 mb-10 flex flex-col gap-6">
+      <div className="text-center mb-6">
+        <h1 className="text-xl md:text-4xl mb-3">Our Exclusive Gallery</h1>
+        <Link className="text-[#4acdd5] text-lg">Be entertained</Link>
+      </div>
+      <div className=" grid grid-cols-1 md:grid-cols-4 gap-6 ">
+        {imgBox.map((item, idx) => (
+          <div className="gl-img-box rounded-lg md:h-[300px] h-auto " key={idx}>
+            <img
+              className="rounded-lg backdrop-blur-sm hover:scale-95 hover:rotate-12 duration-300 gallery-ite w-full h-full shadow-lg"
+              src={item}
+            ></img>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

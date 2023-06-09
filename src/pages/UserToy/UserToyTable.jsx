@@ -41,10 +41,10 @@ const UserToyTable = ({ headers, data, deleteToy }) => {
   };
 
   const sortedData = data.sort((a, b) => {
-    if (a.toyName < b.toyName) {
+    if (a.price < b.price) {
       return sortOrder === "asc" ? -1 : 1;
     }
-    if (a.toyName > b.toyName) {
+    if (a.price > b.price) {
       return sortOrder === "asc" ? 1 : -1;
     }
     return 0;
@@ -61,7 +61,7 @@ const UserToyTable = ({ headers, data, deleteToy }) => {
                 direction={sortOrder}
                 onClick={() => handleSort("name")}
               >
-                Sort by Toy-name
+                Sort by Price
               </TableSortLabel>
             </TableCell>
             {headers.map((header, index) => (

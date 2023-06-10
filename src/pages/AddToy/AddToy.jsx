@@ -77,7 +77,7 @@ const AddToy = () => {
                 "success"
               );
               console.log(data);
-              // form.reset();
+              form.reset();
             });
         } else if (
           /* Read more about handling dismissals below */

@@ -20,7 +20,7 @@ const UserToy = () => {
 
   useEffect(() => {
     fetch(
-      `https://express-workspace-fsikder484-gmailcom.vercel.app/${routeChanger}?email=${user?.email}`
+      `https://express-workspace-fsikder484-gmailcom.vercel.app/userAllToys?email=${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setUsertoys(data));

@@ -69,14 +69,15 @@ const UpdateToy = () => {
             }
           )
             .then((res) => res.json())
-            .then(() => {
-              //   console.log(data);
+            .then((data) => {
+              console.log(data);
 
               swalWithBootstrapButtons.fire(
                 "Added!",
                 "Your toy has been added.",
                 "success"
               );
+              form.reset();
 
               navigate("/my-toys");
             });

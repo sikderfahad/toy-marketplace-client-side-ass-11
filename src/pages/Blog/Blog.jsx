@@ -10,7 +10,6 @@ const Blog = () => {
       <Carousel
         autoPlay="true"
         infiniteLoop="true"
-        showThumbs="true"
         swipeScrollTolerance="100"
         useKeyboardArrows="true"
         autoFocus="true"

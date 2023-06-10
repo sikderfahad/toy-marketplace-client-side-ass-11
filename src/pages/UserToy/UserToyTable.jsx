@@ -95,13 +95,18 @@ const UserToyTable = ({ headers, data, deleteToy }) => {
               <TableCell>
                 <div className="flex flex-col gap-6">
                   <Link to={`/update-toy/${toy._id}`}>
-                    <Button variant="contained" endIcon={<RxUpdate />}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      endIcon={<RxUpdate />}
+                    >
                       Update
                     </Button>
                   </Link>
                   <Button
                     onClick={() => deleteToy(toy._id)}
                     variant="outlined"
+                    color="secondary"
                     startIcon={<MdDelete />}
                   >
                     Delete

@@ -1,8 +1,10 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { LuShieldQuestion } from "react-icons/lu";
+import useTitle from "../../Custom/UseTitle/useTitle";
 
 const Blog = () => {
+  useTitle("Blog");
   return (
     <div className="w-10/12 mx-auto h-[700px] bg-black text-white p-10 rounded-xl">
       <Carousel

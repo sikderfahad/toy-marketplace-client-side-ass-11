@@ -18,7 +18,6 @@ import Test from "./pages/Test/Test";
 import UserToyInfo from "./pages/UserToyInfo/UserToyInfo";
 import UserToy from "./pages/UserToy/UserToy";
 import UpdateToy from "./pages/UpdateToy/UpdateToy";
-import Blogs from "./pages/Blog/Blog";
 import Blog from "./pages/Blog/Blog";
 
 const router = createBrowserRouter([
@@ -95,7 +94,7 @@ const router = createBrowserRouter([
         element: <AllToys></AllToys>,
         loader: () =>
           fetch(
-            "https://express-workspace-fsikder484-gmailcom.vercel.app/allToys"
+            "https://express-workspace-fsikder484-gmailcom.vercel.app/allToysFull"
           ),
       },
       {

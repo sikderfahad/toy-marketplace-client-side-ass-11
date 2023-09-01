@@ -32,7 +32,7 @@ const FAQ = () => {
           Find your answer from here
         </Link>
       </div>
-      <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 items-center ">
+      <div className=" grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ">
         <div data-aos="fade-right" data-aos-duration="1000">
           <img
             src="https://cdn.shopify.com/s/files/1/1152/4590/files/toys_party.png?v=1676127944"

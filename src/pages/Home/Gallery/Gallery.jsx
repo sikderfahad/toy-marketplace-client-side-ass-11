@@ -47,7 +47,7 @@ const Gallery = () => {
         <h1 className="text-xl md:text-4xl mb-3">Our Exclusive Gallery</h1>
         <Link className="text-[#4acdd5] text-lg">Be entertained</Link>
       </div>
-      <div className=" grid grid-cols-1 md:grid-cols-4 gap-6 ">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ">
         {imgBox.map((item, idx) => (
           <div className="gl-img-box rounded-lg md:h-[300px] h-auto " key={idx}>
             <img

@@ -9,7 +9,7 @@ import FAQ from "../FAQ/FAQ";
 const Home = () => {
   useTitle("Home");
   return (
-    <div>
+    <div className="overflow-x-hidden scrollbar-hidden lg:overflow-x-auto">
       <Banner></Banner>
       <DisplayToy></DisplayToy>
       <ShopByAge></ShopByAge>

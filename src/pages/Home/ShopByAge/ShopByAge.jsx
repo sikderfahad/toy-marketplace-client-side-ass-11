@@ -16,7 +16,7 @@ const ShopByAge = () => {
         <h1 className="text-xl md:text-4xl mb-3">Shop by Age</h1>
         <Link className="text-[#4acdd5] text-lg">Our collections</Link>
       </div>
-      <div className="grid  grid-cols-1 md:grid-cols-6 mt-6 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 mt-6 gap-8">
         <div className="">
           <Link className="flex flex-col items-center justify-center gap-4 hover:text-[#4acdd5] duration-200">
             <img

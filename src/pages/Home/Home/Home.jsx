@@ -8,13 +8,16 @@ import FAQ from "../FAQ/FAQ";
 
 const Home = () => {
   useTitle("Home");
+
   return (
-    <div className="overflow-x-hidden scrollbar-hidden lg:overflow-x-auto">
-      <Banner></Banner>
-      <DisplayToy></DisplayToy>
-      <ShopByAge></ShopByAge>
-      <Gallery></Gallery>
-      <FAQ></FAQ>
+    <div>
+      <div className="overflow-x-hidden scrollbar-hidden lg:overflow-x-auto">
+        <Banner></Banner>
+        <DisplayToy></DisplayToy>
+        <ShopByAge></ShopByAge>
+        <Gallery></Gallery>
+        <FAQ></FAQ>
+      </div>
     </div>
   );
 };

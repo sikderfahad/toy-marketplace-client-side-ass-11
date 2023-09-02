@@ -3,6 +3,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import UserToyTable from "./UserToyTable";
 import Swal from "sweetalert2";
 import useTitle from "../../Custom/UseTitle/useTitle";
+import { LoadingTriangle } from "../../components/Spinner/Spinner";
 
 const btn_Success =
   "text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br  shadow-lg shadow-green-500/50  font-medium rounded-lg text-sm px-5 py-2.5 text-center";
@@ -96,37 +97,51 @@ const UserToy = () => {
     "Action",
   ];
 
+  // Loading Intregation
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate an API call or some data loading
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Change this value as needed
+  }, []);
+
   return (
     <div>
-      <div className="w-10/12 mx-auto my-6">
-        <div className="w-full flex items-center justify-between">
-          {userToys.length === 0 ? (
-            <h1 className="text-2xl text-[#2fbff0] font-semibold my-6">
-              {" "}
-              You have never add any toy yet 😴
-            </h1>
-          ) : (
-            <h1 className="text-2xl text-[#2fbff0] font-semibold my-6">
-              Your added → {userToys.length}{" "}
-              {userToys.length > 1 ? "Toys" : "Toy"}
-            </h1>
+      {isLoading ? (
+        <LoadingTriangle />
+      ) : (
+        <div className="w-10/12 mx-auto my-6">
+          <div className="w-full flex items-center justify-between">
+            {userToys.length === 0 ? (
+              <h1 className="text-2xl text-[#2fbff0] font-semibold my-6">
+                {" "}
+                You have never add any toy yet 😴
+              </h1>
+            ) : (
+              <h1 className="text-2xl text-[#2fbff0] font-semibold my-6">
+                Your added → {userToys.length}{" "}
+                {userToys.length > 1 ? "Toys" : "Toy"}
+              </h1>
+            )}
+            <button
+              onClick={priceAscSort}
+              type="button"
+              className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br  shadow-lg shadow-purple-500/50  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
+              Sort By Price Asc
+            </button>
+          </div>
+          {userToys.length > 0 && (
+            <UserToyTable
+              headers={headers}
+              data={userToys}
+              deleteToy={deleteToy}
+            ></UserToyTable>
           )}
-          <button
-            onClick={priceAscSort}
-            type="button"
-            className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br  shadow-lg shadow-purple-500/50  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-          >
-            Sort By Price Asc
-          </button>
         </div>
-        {userToys.length > 0 && (
-          <UserToyTable
-            headers={headers}
-            data={userToys}
-            deleteToy={deleteToy}
-          ></UserToyTable>
-        )}
-      </div>
+      )}
     </div>
   );
 };

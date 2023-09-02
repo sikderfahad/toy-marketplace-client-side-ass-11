@@ -1,4 +1,20 @@
-import { BallTriangle } from "react-loader-spinner";
+import { BallTriangle, Triangle } from "react-loader-spinner";
+
+export const LoadingTriangle = () => {
+  return (
+    <div className="w-full h-[100vh] flex items-center justify-center">
+      <Triangle
+        height="200"
+        width="200"
+        color="#2ebff0"
+        ariaLabel="triangle-loading"
+        wrapperStyle={{}}
+        wrapperClassName=""
+        visible={true}
+      />
+    </div>
+  );
+};
 
 const Spinner = () => {
   return (

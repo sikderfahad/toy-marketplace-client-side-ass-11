@@ -13,7 +13,7 @@ import HiddenRoute from "./privateRoute/HiddenRoute/HiddenRoute";
 import PrivateRoute from "./privateRoute/PrivateRoute/PrivateRoute";
 import ToyDetails from "./pages/ToyDetails/ToyDetails";
 import AddToy from "./pages/AddToy/AddToy";
-import AllToys from "./pages/AllToys/AllToys";
+import AllToys from "./pages/AllToys/AllToys/AllToys";
 import Test from "./pages/Test/Test";
 import UserToyInfo from "./pages/UserToyInfo/UserToyInfo";
 import UserToy from "./pages/UserToy/UserToy";

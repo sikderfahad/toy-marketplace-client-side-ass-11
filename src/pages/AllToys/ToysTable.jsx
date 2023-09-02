@@ -59,7 +59,7 @@ const ToysTable = ({ headers, data }) => {
                 direction={sortOrder}
                 onClick={() => handleSort("name")}
               >
-                Sort by Toy-name
+                Sort
               </TableSortLabel>
             </TableCell>
             {headers.map((header, index) => (

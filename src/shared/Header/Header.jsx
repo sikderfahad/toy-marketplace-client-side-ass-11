@@ -53,7 +53,7 @@ const Header = () => {
   return (
     <header className={`md:py-5 py-4 header relative`}>
       <nav
-        className={`md:w-10/12 w-11/12 mx-auto  ${
+        className={`xl:w-10/12 w-11/12 mx-auto  ${
           user ? "grid md:flex md:justify-between gap-5 grid-cols-2" : "flex"
         } items-center justify-between`}
       >

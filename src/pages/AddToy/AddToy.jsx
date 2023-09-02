@@ -4,6 +4,12 @@ import Swal from "sweetalert2";
 import useTitle from "../../Custom/UseTitle/useTitle";
 import { LoadingTriangle } from "../../components/Spinner/Spinner";
 
+const labelClass =
+  "peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6";
+
+const inputClass =
+  "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer";
+
 const AddToy = () => {
   useTitle("Add Toy");
   const { user } = useContext(AuthContext);
@@ -110,7 +116,7 @@ const AddToy = () => {
       {isLoading ? (
         <LoadingTriangle />
       ) : (
-        <div className="w-11/12 md:w-1/2 mx-auto p-10 bg-gray-900 rounded-xl">
+        <div className="w-11/12 lg:w-3/4 xl:w-1/2 mx-auto p-10 bg-gray-900 rounded-xl">
           <form onSubmit={handledAddToy}>
             <div className="relative z-0 w-full mb-6 group">
               <input
@@ -118,14 +124,12 @@ const AddToy = () => {
                 type="text"
                 name="sellerName"
                 id="sellerName"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                readOnly
+                className={inputClass}
                 placeholder=" "
                 required
               />
-              <label
-                htmlFor="sellerName"
-                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
+              <label htmlFor="sellerName" className={labelClass}>
                 Seller Name
               </label>
             </div>
@@ -135,14 +139,12 @@ const AddToy = () => {
                 type="email"
                 name="email"
                 id="email"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                readOnly
+                className={inputClass}
                 placeholder=" "
                 required
               />
-              <label
-                htmlFor="email"
-                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
+              <label htmlFor="email" className={labelClass}>
                 Email address
               </label>
             </div>
@@ -152,14 +154,11 @@ const AddToy = () => {
                 type="text"
                 name="photo"
                 id="photo"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                className={inputClass}
                 placeholder=" "
                 required
               />
-              <label
-                htmlFor="photo"
-                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
+              <label htmlFor="photo" className={labelClass}>
                 Picture URL of the toy
               </label>
             </div>
@@ -169,14 +168,11 @@ const AddToy = () => {
                   type="text"
                   name="toyName"
                   id="toyName"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className={inputClass}
                   placeholder=" "
                   required
                 />
-                <label
-                  htmlFor="toyName"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
+                <label htmlFor="toyName" className={labelClass}>
                   Toy name
                 </label>
               </div>
@@ -185,14 +181,11 @@ const AddToy = () => {
                   type="text"
                   name="category"
                   id="category"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className={inputClass}
                   placeholder=" "
                   required
                 />
-                <label
-                  htmlFor="category"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
+                <label htmlFor="category" className={labelClass}>
                   Sub-category
                 </label>
               </div>
@@ -203,14 +196,11 @@ const AddToy = () => {
                   type="text"
                   name="details"
                   id="details"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className={inputClass}
                   placeholder=" "
                   required
                 />
-                <label
-                  htmlFor="details"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
+                <label htmlFor="details" className={labelClass}>
                   Details description
                 </label>
               </div>
@@ -219,14 +209,11 @@ const AddToy = () => {
                   type="text"
                   name="quantity"
                   id="quantity"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className={inputClass}
                   placeholder=" "
                   required
                 />
-                <label
-                  htmlFor="quantity"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
+                <label htmlFor="quantity" className={labelClass}>
                   Available quantity
                 </label>
               </div>
@@ -237,14 +224,11 @@ const AddToy = () => {
                   type="number"
                   name="rating"
                   id="rating"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className={inputClass}
                   placeholder=" "
                   required
                 />
-                <label
-                  htmlFor="rating"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
+                <label htmlFor="rating" className={labelClass}>
                   Rating
                 </label>
               </div>
@@ -253,14 +237,11 @@ const AddToy = () => {
                   type="number"
                   name="price"
                   id="price"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  className={inputClass}
                   placeholder=" "
                   required
                 />
-                <label
-                  htmlFor="price"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
+                <label htmlFor="price" className={labelClass}>
                   Price
                 </label>
               </div>
@@ -268,7 +249,7 @@ const AddToy = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="text-white w-1/2 mx-auto mt-6 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br  shadow-lg shadow-green-500/50  font-medium rounded-lg text-lg md:text-xl px-5 py-2.5 text-center"
+                className="text-white w-full md:w-1/2 mx-auto mt-6 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br  shadow-lg shadow-green-500/50  font-medium rounded-lg text-lg md:text-xl px-5 py-2.5 text-center"
               >
                 Add New Toy
               </button>

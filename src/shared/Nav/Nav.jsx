@@ -13,7 +13,7 @@ const Nav = ({ route, setBg }) => {
     return false;
   }
   return (
-    <li className="block md:inline md:mx-3">
+    <li className="block lg:inline md:mx-3">
       <NavLink
         onClick={setBg}
         className={({ isActive, isPending }) =>
@@ -21,7 +21,7 @@ const Nav = ({ route, setBg }) => {
             ? "active"
             : isPending
             ? "pending"
-            : "text-[#757575] navLink md:inline block"
+            : "text-[#757575] navLink px-4 py-3 md:px-4 md:py-3 lg:px-0 lg:py-0 xl:px-4 xl:py-3 text-lg md:text-lg lg:text-base xl:text-lg md:inline block"
         }
         to={route.path}
       >

@@ -9,14 +9,15 @@ import {
 import { styled, alpha } from "@mui/material/styles";
 
 import "animate.css";
+import "./AllToys.css";
 
-import ToysTable from "./ToysTable";
+import ToysTable from "../ToysTable";
 import { useLoaderData } from "react-router-dom";
-import useTitle from "../../Custom/UseTitle/useTitle";
+import useTitle from "../../../Custom/UseTitle/useTitle";
 import { useEffect, useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 import Swal from "sweetalert2";
-import { LoadingTriangle } from "../../components/Spinner/Spinner";
+import { LoadingTriangle } from "../../../components/Spinner/Spinner";
 
 const AllToys = () => {
   useTitle("All Toys");

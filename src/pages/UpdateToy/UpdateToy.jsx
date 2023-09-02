@@ -59,7 +59,7 @@ const UpdateToy = () => {
       .then((result) => {
         if (result.isConfirmed) {
           fetch(
-            `https://express-workspace-fsikder484-gmailcom.vercel.app/allToys/${preToyData._id}`,
+            `https://express-workspace.vercel.app/allToys/${preToyData._id}`,
             {
               method: "PUT",
               headers: {

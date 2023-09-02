@@ -66,16 +66,13 @@ const AddToy = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(
-            "https://express-workspace-fsikder484-gmailcom.vercel.app/addToy",
-            {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(toyInfo),
-            }
-          )
+          fetch("https://express-workspace.vercel.app/addToy", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(toyInfo),
+          })
             .then((res) => res.json())
             .then((data) => {
               swalWithBootstrapButtons.fire(

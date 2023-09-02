@@ -12,6 +12,12 @@ import map from "../../assets/img/map.png";
 import mail from "../../assets/img/arroba.png";
 import call from "../../assets/img/phone-call.png";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+// Initialize AOS
+AOS.init();
+
 const Footer = () => {
   const qk_link = [
     "Help Center",
@@ -61,7 +67,10 @@ const Footer = () => {
       <div className="main-footer">
         <div className="md:w-10/12 w-11/12 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[2fr,1fr,1fr,1fr] gap-8">
-            <div className="">
+            <div
+              // data-aos="flip-up"
+              className=""
+            >
               <div className=" xl:flex  xl:flex-col items-center justify-between md:gap-0 gap-8">
                 <div className="flgo">
                   <img src={footerLogo} alt="" />
@@ -142,7 +151,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-[#4acdd5] text-center py-8 text-white">
-        <p>Copyright Toyman | Built with Toyman by Team90Degree</p>
+        <p>© {new Date().getFullYear()} | All rights reserved by ToyMan</p>
       </div>
     </div>
   );

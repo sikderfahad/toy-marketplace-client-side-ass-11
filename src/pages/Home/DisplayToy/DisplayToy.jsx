@@ -7,6 +7,7 @@ import { ToastMsgWarn } from "../../../components/Toast/ToastMsg";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SecTitle from "../../../shared/SecTitle/SecTitle";
 
 // Initialize AOS
 AOS.init();
@@ -16,7 +17,7 @@ const ToyList = () => {
   const [toysData, setToysData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/toyes")
+    fetch("https://express-workspace.vercel.app/toyes")
       .then((res) => res.json())
       .then((data) => setToysData(data));
   }, []);
@@ -32,10 +33,11 @@ const ToyList = () => {
       data-aos="fade-up"
       className="w-11/12 md:w-10/12 my-24 mx-auto flex flex-col gap-6"
     >
-      <div className="text-center mb-6">
-        <h1 className="text-xl md:text-4xl mb-3">We Love Trends</h1>
-        <Link className="text-[#4acdd5] text-lg">Featured Products</Link>
-      </div>
+      <SecTitle
+        title={"We Love Trends"}
+        subTitle={"Featured Products"}
+      ></SecTitle>
+
       <div className=" my-10 ">
         <Tabs>
           <TabList className="flex md:flex-row flex-col md:gap-8 gap-4 md:w-fit w-full text-center mx-auto mb-10">

@@ -53,9 +53,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://express-workspace-fsikder484-gmailcom.vercel.app/toyes/${params.id}`
-          ),
+          fetch(`https://express-workspace.vercel.app/toyes/${params.id}`),
       },
       {
         path: "/add-toy",
@@ -73,9 +71,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://express-workspace-fsikder484-gmailcom.vercel.app/allToys/${params.id}`
-          ),
+          fetch(`https://express-workspace.vercel.app/allToys/${params.id}`),
       },
       {
         path: "/update-toy/:id",
@@ -85,17 +81,12 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://express-workspace-fsikder484-gmailcom.vercel.app/allToys/${params.id}`
-          ),
+          fetch(`https://express-workspace.vercel.app/allToys/${params.id}`),
       },
       {
         path: "/all-toys",
         element: <AllToys></AllToys>,
-        loader: () =>
-          fetch(
-            "https://express-workspace-fsikder484-gmailcom.vercel.app/allToysFull"
-          ),
+        loader: () => fetch("https://express-workspace.vercel.app/allToysFull"),
       },
       {
         path: "/my-toys",

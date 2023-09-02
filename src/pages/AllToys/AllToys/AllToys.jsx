@@ -31,9 +31,7 @@ const AllToys = () => {
   };
 
   useEffect(() => {
-    fetch(
-      "https://express-workspace-fsikder484-gmailcom.vercel.app/allToysLimit"
-    )
+    fetch("https://express-workspace.vercel.app/allToysLimit")
       .then((res) => res.json())
       .then((data) => setAllToys(data));
   }, []);

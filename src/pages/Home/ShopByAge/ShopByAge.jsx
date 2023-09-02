@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SecTitle from "../../../shared/SecTitle/SecTitle";
 
 // Initialize AOS
 AOS.init();
@@ -12,10 +13,8 @@ const ShopByAge = () => {
       data-aos-duration="1000"
       className="w-10/12 mx-auto flex flex-col items-center gap-6 my-20"
     >
-      <div className="text-center mb-6">
-        <h1 className="text-xl md:text-4xl mb-3">Shop by Age</h1>
-        <Link className="text-[#4acdd5] text-lg">Our collections</Link>
-      </div>
+      <SecTitle title={"Shop by Age"} subTitle={"Our collections"}></SecTitle>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 mt-6 gap-8">
         <div className="">
           <Link className="flex flex-col items-center justify-center gap-4 hover:text-[#4acdd5] duration-200">

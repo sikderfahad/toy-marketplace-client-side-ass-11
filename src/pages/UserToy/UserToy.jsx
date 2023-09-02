@@ -21,7 +21,7 @@ const UserToy = () => {
 
   useEffect(() => {
     fetch(
-      `https://express-workspace-fsikder484-gmailcom.vercel.app/userAllToys?email=${user?.email}`
+      `https://express-workspace.vercel.app/userAllToys?email=${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setUsertoys(data));
@@ -54,12 +54,9 @@ const UserToy = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(
-            `https://express-workspace-fsikder484-gmailcom.vercel.app/allToys/${id}`,
-            {
-              method: "DELETE",
-            }
-          )
+          fetch(`https://express-workspace.vercel.app/allToys/${id}`, {
+            method: "DELETE",
+          })
             .then((res) => res.json())
             .then((data) => {
               console.log(data);

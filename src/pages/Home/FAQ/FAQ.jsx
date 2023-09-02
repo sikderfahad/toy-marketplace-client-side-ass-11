@@ -6,8 +6,7 @@ import {
 } from "@material-ui/core";
 import { useState } from "react";
 import { AiOutlineArrowDown } from "react-icons/ai";
-import { Link } from "react-router-dom";
-
+import SecTitle from "../../../shared/SecTitle/SecTitle";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -26,12 +25,11 @@ const FAQ = () => {
       data-aos-duration="1000"
       className="w-10/12 mx-auto my-24 flex flex-col gap-8"
     >
-      <div className="text-center mb-6">
-        <h1 className="text-xl md:text-4xl mb-3">Frequently Asked Questions</h1>
-        <Link className="text-[#4acdd5] text-lg">
-          Find your answer from here
-        </Link>
-      </div>
+      <SecTitle
+        title={"Frequently Asked Questions"}
+        subTitle={"Find your answer from here"}
+      ></SecTitle>
+
       <div className=" grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ">
         <div data-aos="fade-right" data-aos-duration="1000">
           <img

@@ -109,23 +109,25 @@ const UserToy = () => {
       {isLoading ? (
         <LoadingTriangle />
       ) : (
-        <div className="w-10/12 mx-auto my-6">
-          <div className="w-full flex items-center justify-between">
-            {userToys.length === 0 ? (
-              <h1 className="text-2xl text-[#2fbff0] font-semibold my-6">
-                {" "}
-                You have never add any toy yet 😴
-              </h1>
-            ) : (
-              <h1 className="text-2xl text-[#2fbff0] font-semibold my-6">
-                Your added → {userToys.length}{" "}
-                {userToys.length > 1 ? "Toys" : "Toy"}
-              </h1>
-            )}
+        <div className="w-11/12 lg:w-10/12 mx-auto my-6">
+          <div className="w-full flex flex-col mb-12 md:flex-row items-center justify-between">
+            <div>
+              {userToys.length === 0 ? (
+                <h1 className="text-lg md:text-2xl text-[#2fbff0] font-semibold my-6">
+                  {" "}
+                  You have never add any toy yet 😴
+                </h1>
+              ) : (
+                <h1 className="text-lg md:text-2xl text-[#2fbff0] font-semibold my-6">
+                  Your added → {userToys.length}{" "}
+                  {userToys.length > 1 ? "Toys" : "Toy"}
+                </h1>
+              )}
+            </div>
             <button
               onClick={priceAscSort}
               type="button"
-              className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br  shadow-lg shadow-purple-500/50  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br  shadow-lg shadow-purple-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               Sort By Price Asc
             </button>

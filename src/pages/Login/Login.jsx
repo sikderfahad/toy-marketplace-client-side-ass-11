@@ -100,26 +100,32 @@ const Login = () => {
   };
 
   return (
-    <div className="h-[100vh] bg-black">
-      <div className="md:w-4/12 w-10/12 mx-auto flex flex-col gap-7 relative top-[150px] ">
-        <h1 className="text-center text-5xl font-bold text-white">
+    <div className="py-12 xl:h-[100vh] bg-black">
+      <div className="xl:w-4/12 lg:5/12 pb-6 md:w-1/2 w-11/12 mx-auto flex flex-col gap-3 md:gap-7 relative top-6 lg:top-10 lg:pb-8 ">
+        <h1 className="text-center text-xl md:text-2xl lg:text-3xl xl:text-5xl font-bold text-white mb-3">
           Let{"'"}s connect our universe{" "}
         </h1>
-
+        {/* flex items-center gap-4 */}
         {error && (
-          <div className="w-fit p-4 flex items-center gap-4 rounded text-lg font-medium bg-red-500 text-white text-center mx-auto">
-            <TiWarningOutline className="text-3xl" /> {error}
+          <div className="w-fit py-2 px-1 md:px-4 md:py-4 rounded text-base font-medium bg-red-500 text-white text-center mx-auto">
+            <h1>
+              <TiWarningOutline className="text-2xl md:text-3xl inline" />{" "}
+              {error}
+            </h1>
           </div>
         )}
 
         {success && (
-          <div className="w-fit p-4 rounded flex items-center gap-4 text-lg font-medium bg-green-500 text-white text-center mx-auto">
-            <BsFillHouseCheckFill className="text-3xl" /> {success}
+          <div className="w-fit py-2 px-1 md:px-4 md:py-4 rounded text-base font-medium bg-green-500 text-white text-center mx-auto">
+            <h1>
+              <BsFillHouseCheckFill className="text-2xl md:text-3xl inline" />{" "}
+              {success}
+            </h1>
           </div>
         )}
 
         {!login && (
-          <div className="text-center w-7/12 flex flex-col items-center justify-center mx-auto gap-2">
+          <div className="text-center w-full md:w-11/12 lg:w-7/12 flex flex-col items-center justify-center mx-auto gap-2">
             <button
               onClick={handledGithubSignIn}
               className="relative w-full flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-lg font-medium text-white rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 dark:text-white focus:ring-2 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
@@ -150,13 +156,13 @@ const Login = () => {
         )}
 
         {login && (
-          <div className="w-100% w-[320px] mx-auto">
+          <div className="w-full md:w-[320px] mx-auto">
             <form
               onSubmit={handledLogin}
               className="flex flex-col gap-4"
               action=""
             >
-              <div className="flex items-center max-w-[320px] login-box">
+              <div className="flex items-center w-full md:max-w-[320px] login-box">
                 <input
                   className="w-full p-3 border border-gray-100 rounded-lg bg-transparent text-white "
                   type="email"
@@ -165,7 +171,7 @@ const Login = () => {
                   required
                 />
               </div>
-              <div className="flex items-center max-w-[320px] login-box relative">
+              <div className="flex items-center w-full md:max-w-[320px] login-box relative">
                 <input
                   className="w-full p-3 border border-gray-100  rounded-lg bg-transparent text-white "
                   type={`${!show ? "password" : "text"}`}

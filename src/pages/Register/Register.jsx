@@ -70,32 +70,38 @@ const Register = () => {
   };
 
   return (
-    <div className="py-[200px] bg-black">
-      <div className="md:w-4/12 w-10/12 mx-auto flex flex-col gap-7  top-[100px] ">
-        <h1 className="text-center text-5xl font-bold text-white">
+    <div className="py-12 md:py-20  bg-black">
+      <div className="lg:w-4/12 md:w-[320px] w-11/12 mx-auto flex flex-col gap-7 top-6 md:top-12 ">
+        <h1 className="text-center text-xl md:text-2xl lg:text-5xl font-bold text-white">
           Create ToyMan Account{" "}
         </h1>
 
         {error && (
-          <div className="w-fit p-4 flex items-center gap-4 rounded text-lg font-medium bg-red-500 text-white text-center mx-auto">
-            <TiWarningOutline className="text-3xl" /> {error}
+          <div className="w-fit py-2 px-1 md:px-4 md:py-4 rounded text-base font-medium bg-red-500 text-white text-center mx-auto">
+            <h1>
+              <TiWarningOutline className="text-2xl md:text-3xl inline" />{" "}
+              {error}
+            </h1>
           </div>
         )}
 
         {success && (
-          <div className="w-fit p-4 rounded flex items-center gap-4 text-lg font-medium bg-green-500 text-white text-center mx-auto">
-            <BsFillHouseCheckFill className="text-3xl" /> {success}
+          <div className="w-fit py-2 px-1 md:px-4 md:py-4 rounded text-base font-medium bg-green-500 text-white text-center mx-auto">
+            <h1>
+              <BsFillHouseCheckFill className="text-2xl md:text-3xl inline" />{" "}
+              {success}
+            </h1>
           </div>
         )}
 
         <div>
-          <div className="w-100% w-[320px] mx-auto">
+          <div className="w-full lg:w-[320px] mx-auto">
             <form
               onSubmit={handledSignup}
               className="flex flex-col gap-4"
               action=""
             >
-              <div className="flex items-center max-w-[320px] login-box">
+              <div className="flex items-center w-full md:max-w-[320px] login-box">
                 <input
                   className="border w-full p-3 rounded-lg bg-transparent text-white "
                   type="text"
@@ -104,7 +110,7 @@ const Register = () => {
                   required
                 />
               </div>
-              <div className="flex items-center max-w-[320px] login-box">
+              <div className="flex items-center w-full md:max-w-[320px] login-box">
                 <input
                   className="border w-full p-3 rounded-lg bg-transparent text-white "
                   type="email"
@@ -113,7 +119,7 @@ const Register = () => {
                   required
                 />
               </div>
-              <div className="flex items-center max-w-[320px] login-box relative">
+              <div className="flex items-center w-full md:max-w-[320px] login-box relative">
                 <input
                   className="border w-full p-3 rounded-lg bg-transparent text-white "
                   type={`${!show ? "password" : "text"}`}
@@ -129,7 +135,7 @@ const Register = () => {
                 </span>
               </div>
 
-              <div className="flex items-center max-w-[320px] login-box">
+              <div className="flex items-center w-full md:max-w-[320px] login-box">
                 <input
                   className="border w-full p-3 rounded-lg bg-transparent text-white "
                   type="text"

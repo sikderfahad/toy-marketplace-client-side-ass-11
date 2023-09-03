@@ -138,7 +138,7 @@ const AllToys = () => {
           <div className="">
             <Box sx={{ flexGrow: 1 }}>
               <AppBar position="static">
-                <div className="w-10/12 py-6 md:py-1 mx-auto">
+                <div className="w-11/12 lg:w-10/12 py-6 md:py-1 mx-auto">
                   <Toolbar className="flex md:flex-row flex-col gap-6 justify-between">
                     <Button
                       onClick={handledFullData}
@@ -175,7 +175,7 @@ const AllToys = () => {
             </Box>
           </div>
           {allToys && (
-            <div className="w-10/12 my-10 mx-auto">
+            <div className="w-11/12 lg:w-10/12 my-10 mx-auto">
               <ToysTable headers={headers} data={allToys}></ToysTable>
             </div>
           )}

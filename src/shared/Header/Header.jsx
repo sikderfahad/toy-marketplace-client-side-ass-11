@@ -64,8 +64,8 @@ const Header = () => {
         <div className="mebubar">
           <div
             className={`lg:hidden ${user ? "text-right" : "text-center"}`}
-            onMouseEnter={() => setOpen(!open)}
-            onMouseLeave={() => setOpen(!open)}
+            // onMouseEnter={() => setOpen(!open)}
+            // onMouseLeave={() => setOpen(!open)}
             onClick={() => setOpen(!open)}
           >
             <span className="text-2xl inline">

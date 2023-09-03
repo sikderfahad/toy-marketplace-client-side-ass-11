@@ -1,6 +1,6 @@
+import SecTitle from "../../../shared/SecTitle/SecTitle";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import SecTitle from "../../../shared/SecTitle/SecTitle";
 
 // Initialize AOS
 AOS.init();

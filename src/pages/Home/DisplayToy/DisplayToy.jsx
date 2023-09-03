@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { ToastMsgWarn } from "../../../components/Toast/ToastMsg";
 
+import SecTitle from "../../../shared/SecTitle/SecTitle";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import SecTitle from "../../../shared/SecTitle/SecTitle";
 
 // Initialize AOS
 AOS.init();
@@ -29,10 +29,7 @@ const ToyList = () => {
   };
 
   return (
-    <div
-      data-aos="fade-up"
-      className="w-11/12 md:w-10/12 my-24 mx-auto flex flex-col gap-6"
-    >
+    <div className="w-11/12 md:w-10/12 my-24 mx-auto flex flex-col gap-6">
       <SecTitle
         title={"We Love Trends"}
         subTitle={"Featured Products"}
@@ -66,6 +63,7 @@ const ToyList = () => {
                   .filter((toy) => toy.Category === category)
                   .map((toy) => (
                     <div
+                      data-aos="fade-up"
                       key={toy.Name}
                       className="bg-[#f6f8fa] shadow rounded-lg overflow-hidden transform hover:scale-95 duration-300"
                     >

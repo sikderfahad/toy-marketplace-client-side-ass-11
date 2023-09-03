@@ -1,10 +1,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import BasicTabs from "../Home/ToyTab/ToyTab";
 import "swiper/css";
-import "./Test.css";
-import SecTitle from "../../shared/SecTitle/SecTitle";
-import Poster from "../Home/Poster/Poster";
-import Newsletter from "../Home/Home/Newsletter/Newsletter";
+import "./style.css";
+import SecTitle from "../../../shared/SecTitle/SecTitle";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+// Initialize AOS
+AOS.init();
 
 const swiperImgBox = [
   { cat: "Featured", qnt: 99, img: "https://i.ibb.co/JKyYkbr/6.webp" },
@@ -14,20 +17,18 @@ const swiperImgBox = [
   { cat: "Trends", qnt: 99, img: "https://i.ibb.co/5LXdX67/4.jpg" },
   { cat: "New Arrival", qnt: 99, img: "https://i.ibb.co/HzYMWhb/5.webp" },
 ];
-
-const Test = () => {
+const YongerToyes = () => {
   return (
     <div>
-      <BasicTabs></BasicTabs>
-      {/* <div className="w-11/12 lg:w-10/12 mx-auto mt-8">
+      <div className="w-11/12 lg:w-10/12 mx-auto my-16">
         <SecTitle
           title={"We design toys not just for kids"}
           subTitle={"Explore More"}
         ></SecTitle>
         <Swiper
           spaceBetween={50}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log("slide change")}
+          // onSwiper={(swiper) => console.log(swiper)}
           autoplay={{
             delay: 3000, // Delay between slides in milliseconds (3 seconds in this example)
             disableOnInteraction: false, // Prevent autoplay from stopping on user interaction
@@ -64,7 +65,7 @@ const Test = () => {
         >
           {swiperImgBox.map(({ cat, qnt, img }) => (
             <SwiperSlide key={img}>
-              <div className="">
+              <div data-aos="zoom-in-up" className="">
                 <div className="thumb rounded-lg overflow-hidden">
                   <img
                     className="w-full h-full rounded-lg hover:scale-125 duration-500"
@@ -80,13 +81,9 @@ const Test = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div> */}
-
-      <Poster></Poster>
-
-      <Newsletter></Newsletter>
+      </div>
     </div>
   );
 };
 
-export default Test;
+export default YongerToyes;

@@ -1,0 +1,9 @@
+.pr-count::before {
+  display: inline-block;
+  vertical-align: middle;
+  content: "";
+  width: 50px;
+  height: 1px;
+  margin-right: 10px;
+  background-color: #ccc;
+}
